@@ -257,8 +257,7 @@ type = internal/date
 interval = 1
 
 date = "%r %d-%m-%Y %A : %U, %j"
-date-alt = "%d-%m-%Y"
-
+# date-alt = "%d-%m-%Y"
 time = 
 time-alt = 
 
