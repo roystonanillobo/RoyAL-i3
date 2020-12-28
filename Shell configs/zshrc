@@ -134,19 +134,15 @@ ex ()
 
 # Custom alias
 
-alias pc="sudo pacman"
-alias int="sudo pacman -S"
-alias rmv="sudo pacman -R"
+alias int="sudo pamac install"
+alias rmv="sudo pamac remove"
+alias yay="yay -S"
+alias up="sudo pamac update"
+alias yup="yay -Syyu"
 alias off="sudo shutdown now"
-alias ls='ls --group-directories-first --color=auto'
-alias lsl='ls -alFh --group-directories-first  --color=auto'
 alias su="sudo su"
 alias h="history"
 alias re="source ~/.zshrc"
-alias up='sudo pamac update'
-alias yup='yay -Syyu'
 alias rm="rm -i"
-alias ..="cd .."
-alias op="setsid -f"
 alias 0="exit"
 alias myip="ip route get 1.2.3.4 | awk '{print $7}'"
