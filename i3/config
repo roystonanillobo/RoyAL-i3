@@ -12,10 +12,11 @@ set $mod Mod4
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
 ## Variables
-set $cli konsole
-set $file dolphin
-set $cal kcalc
-set $edit kate
+set $cli xfce4-terminal
+set $file nemo
+set $cal qalculator
+set $edit geany
+set $scap xfce4-screenshooter
 
 # start a terminal
 bindsym $mod+Return exec $cli
@@ -33,8 +34,8 @@ bindsym $mod+Ctrl+e exec $cli -e ranger
 bindsym $mod+Shift+e exec $edit
 bindsym $mod+c exec $cal
 # bindsym $mod+Shift+c exec $cli -e calcurse
-# bindsym $mod+Shift+c exec gsimplecal
-bindsym $mod+Shift+s exec spectacle
+bindsym $mod+Shift+c exec orage
+bindsym $mod+Shift+s exec $scap
 bindsym $mod+F1 exec xclip -selection clipboard -o | qrencode - d 100 -o - |  feh -FZ -
 
 
@@ -299,8 +300,9 @@ bindsym $mod+Shift+Delete mode "$mode_system"
 set $mode_system (l)ogout, s(u)spend, (r)eboot, (s)hutdown
 mode "$mode_system" {
     bindsym u exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym l exec --no-startup-id i3-msg exit, mode "default"
-    #bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym l exec --no-startup-id xfce4-session-logout, mode "default"
+    # bindsym l exec --no-startup-id i3-msg exit, mode "default"
+    # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
