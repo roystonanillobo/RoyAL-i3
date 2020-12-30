@@ -12,9 +12,9 @@ set $mod Mod4
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
 ## Variables
-set $cli xfce4-terminal
+set $cli termite
 set $file nemo
-set $cal qalculator
+set $cal qalculate-gtk
 set $edit geany
 set $scap xfce4-screenshooter
 
@@ -39,12 +39,11 @@ bindsym $mod+Shift+s exec $scap
 bindsym $mod+F1 exec xclip -selection clipboard -o | qrencode - d 100 -o - |  feh -FZ -
 
 
-
-
 bindsym $mod+b mode "$mode_browser"
-set $mode_browser (g)oogle-chrome, (c)hromium, (v)ivaldi, (f)irefox
+set $mode_browser (c)hromium, (b)rave, (f)irefox
 mode "$mode_browser" {
-    bindsym g exec google-chrome; mode "default"
+    # bindsym b exec --no-startup-id "rofi -show drun Brave_Web_Browser; mode "default"
+    # bindsym b exec /home/lobo/.local/share/applicationsBrave\ Web\ Browser; mode "default"
     bindsym c exec chromium; mode "default"
     bindsym v exec vivaldi-snapshot; mode "default"
     bindsym f exec firefox; mode "default"
@@ -235,8 +234,6 @@ workspace_auto_back_and_forth yes
 bindsym $mod+p move workspace to output right
 bindsym $mod+Shift+p move workspace to output left
 
-
-
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pcmanfm"] $ws3
@@ -279,6 +276,7 @@ for_window [title="Progress"] floating enable
 for_window [title="Add/Edit Citation"] floating enable
 for_window [title="Zotero - Document Preferences"] floating enable
 #for_window [title="calcurse"] floating enable
+for_window [class="Qalculate-gtk"] floating enable border normal
 
 
 # switch to workspace with urgent window automatically
@@ -300,8 +298,8 @@ bindsym $mod+Shift+Delete mode "$mode_system"
 set $mode_system (l)ogout, s(u)spend, (r)eboot, (s)hutdown
 mode "$mode_system" {
     bindsym u exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym l exec --no-startup-id xfce4-session-logout, mode "default"
-    # bindsym l exec --no-startup-id i3-msg exit, mode "default"
+    # bindsym l exec --no-startup-id xfce4-session-logout, mode "default"
+    bindsym l exec --no-startup-id i3-msg exit, mode "default"
     # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
@@ -312,12 +310,12 @@ mode "$mode_system" {
 }
 
 # Lock screen
-bindsym $mod+l exec --no-startup-id i3lock -i /home/lobo/Pictures/Wallpaper/mosaic_colorful_hexagons_144761_dark_overlay_1920x1080.png
+bindsym $mod+l exec --no-startup-id i3lock -c 000000
 
 
 # Screen brightness controls
-  bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-  bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+  # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+  # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; notify-send 'volume up'"
@@ -402,14 +400,13 @@ set_from_resource $term_color15    color15
 # bindsym Num_Lock mode "num"
 
 
-
 # Polybar launch script (located ~/.config/polybar/launch.sh) 
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 # exec_always --no-startup-id lxpanel
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 3
+default_border 1pixel
 default_floating_border pixel 5
 
 # Hide borders
