@@ -133,12 +133,23 @@ ex ()
 
 
 # Custom alias
-
+## manjaro
 alias int="sudo pamac install"
 alias rmv="sudo pamac remove"
 alias yay="yay -S"
 alias up="sudo pamac update"
 alias yup="yay -Syyu"
+alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+
+## fedora
+alias int="sudo dnf install"
+alias rmv="sudo dnf remove"
+alias up="sudo dnf update"
+
+## non distro specific
+alias flat="flatpak search"
+alias fint="flatpak install"
 alias off="sudo shutdown now"
 alias su="sudo su"
 alias h="history"
