@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #00000f
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -31,7 +31,7 @@ alert = #bd2c40
 # font-0 = "CMU Serif:pixelsize=12;0"
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 26
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -99,7 +99,8 @@ type = internal/xkeyboard
 ;blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+# format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = #ff00ff
 format-prefix-underline = ${colors.primary}
 
 label-layout = %layout%
