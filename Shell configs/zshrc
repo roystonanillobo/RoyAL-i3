@@ -147,9 +147,12 @@ alias int="sudo dnf install"
 alias rmv="sudo dnf remove"
 alias up="sudo dnf update"
 
-## non distro specific
+## flatpak
 alias flat="flatpak search"
 alias fint="flatpak install"
+alias fup="flatpak update"
+
+## non distro specific
 alias off="sudo shutdown now"
 alias su="sudo su"
 alias h="history"
