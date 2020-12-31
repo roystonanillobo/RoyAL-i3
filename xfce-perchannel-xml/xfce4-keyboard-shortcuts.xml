@@ -12,13 +12,25 @@
       </property>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="empty"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="empty"/>
       <property name="XF86Display" type="empty"/>
       <property name="&lt;Super&gt;p" type="empty"/>
       <property name="&lt;Primary&gt;Escape" type="empty"/>
+      <property name="XF86LogOff" type="empty"/>
+      <property name="Print" type="empty"/>
+      <property name="&lt;Alt&gt;Print" type="empty"/>
       <property name="XF86WWW" type="empty"/>
       <property name="XF86Mail" type="empty"/>
-      <property name="Print" type="empty"/>
+      <property name="XF86Calendar" type="empty"/>
+      <property name="XF86Memo" type="empty"/>
+      <property name="XF86Terminal" type="empty"/>
+      <property name="XF86Explorer" type="empty"/>
+      <property name="XF86AudioMedia" type="empty"/>
+      <property name="XF86AudioPlay" type="empty"/>
+      <property name="XF86AudioPrev" type="empty"/>
+      <property name="XF86AudioNext" type="empty"/>
+      <property name="XF86Calculator" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="empty"/>
       <property name="&lt;Control&gt;Escape" type="empty"/>
     </property>
@@ -39,7 +51,7 @@
       </property>
       <property name="&lt;Super&gt;e" type="string" value="nemo"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;Delete" type="string" value="xfce4-session-logout"/>
-      <property name="&lt;Super&gt;l" type="string" value="i3lock --color=000000"/>
+      <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
