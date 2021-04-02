@@ -136,7 +136,6 @@ ex ()
 ## manjaro
 alias int="sudo pamac install"
 alias rmv="sudo pamac remove"
-alias yay="yay -S"
 alias up="sudo pamac update"
 alias yup="yay -Syyu"
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
