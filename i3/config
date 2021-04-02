@@ -12,11 +12,11 @@ set $mod Mod4
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
 ## Variables
-set $cli termite
-set $file nemo
-set $cal qalculate-gtk
-set $edit geany
-set $scap xfce4-screenshooter
+set $cli xfce4-terminal
+set $file thunar
+set $cal calculator
+set $edit notepadqq
+set $scap flatpak run org.flameshot.Flameshot gui
 
 # start a terminal
 bindsym $mod+Return exec $cli
@@ -27,7 +27,7 @@ bindsym $mod+Ctrl+space exec --no-startup-id dmenu_run -c -bw 2 -l 20 -g 4
 
 
 # Keyboard shortcuts for apps
-#bindsym $mod+b exec firefox
+bindsym $mod+b exec firefox
 bindsym $mod+e exec $file
 bindsym $mod+Ctrl+e exec $cli -e ranger
 #bindsym $mod+p exec $cli -e xprop
@@ -36,10 +36,17 @@ bindsym $mod+c exec $cal
 # bindsym $mod+Shift+c exec $cli -e calcurse
 bindsym $mod+Shift+c exec orage
 bindsym $mod+Shift+s exec $scap
-bindsym $mod+F1 exec xclip -selection clipboard -o | qrencode - d 100 -o - |  feh -FZ -
+#bindsym $mod+F1 exec xclip -selection clipboard -o | qrencode - d 100 -o - |  feh -FZ -
+bindsym $mod+F1 exec chromium
+bindsym $mod+F2 exec flatpak run org.jamovi.jamovi
+bindsym $mod+F3 exec flatpak run org.zotero.Zotero
+bindsym $mod+F4 exec
+bindsym $mod+F5 exec flatpak run org.telegram.desktop
+bindsym $mod+F6 exec flatpak run org.signal.Signal
 
 
-bindsym $mod+b mode "$mode_browser"
+
+#bindsym $mod+b mode "$mode_browser"
 set $mode_browser (c)hromium, (b)rave, (f)irefox
 mode "$mode_browser" {
     # bindsym b exec --no-startup-id "rofi -show drun Brave_Web_Browser; mode "default"
@@ -70,7 +77,7 @@ mode "$screen_rotate" {
     bindsym Escape mode "default"
 }
 
-#bindsym select file manager "$mode_file"
+#bindsym $mod+e mode "$mode_file"
 set $mode_file (e)thunar, (p)pcmanfm
 mode "$mode_file" {
     bindsym p exec pcmanfm; mode "default"
@@ -100,17 +107,18 @@ bindsym $mod+q kill
 
 bindsym $mod+Ctrl+v exec pavucontrol
 # bindsym $mod+Ctrl+b exec $cli -e 'bmenu'
-bindsym $mod+Print --release exec --no-startup-id flameshot gui
+# bindsym $mod+Print --release exec --no-startup-id flameshot gui
 
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/mate-polkit/polkit-mate-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-applet
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id volumeicon
 exec --no-startup-id picom
 exec --no-startup-id dunst
@@ -118,7 +126,8 @@ exec --no-startup-id dunst
 #exec --no-startup-id pa-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id killall pasystray && pasystray
 
 # change focus
 bindsym $mod+Left focus left
@@ -277,7 +286,11 @@ for_window [title="Add/Edit Citation"] floating enable
 for_window [title="Zotero - Document Preferences"] floating enable
 #for_window [title="calcurse"] floating enable
 for_window [class="Qalculate-gtk"] floating enable border normal
-
+for_window [title="Jitsi Meet"] floating enable border normal
+for_window [title="File-roller"] floating enable border normal
+for_window [class="TelegramDesktop"] floating enable border normal
+for_window [title="telegram-desktop"] floating enable border normal
+for_window [title="Signal"] floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
