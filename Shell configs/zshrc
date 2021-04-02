@@ -147,6 +147,11 @@ alias int="sudo dnf install"
 alias rmv="sudo dnf remove"
 alias up="sudo dnf update"
 
+## linuxmint
+alias int="sudo apt install"
+alias rmv="sudo apt remove"
+alias up="sudo apt update && sudo apt upgrade"
+
 ## flatpak
 alias flat="flatpak search"
 alias fint="flatpak install"
