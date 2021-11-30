@@ -146,6 +146,12 @@ alias int="sudo dnf install"
 alias rmv="sudo dnf remove"
 alias up="sudo dnf update"
 
+
+## Opensuse
+alias int="sudo zypper install"
+alias rmv="sudo zypper remove"
+alias up="sudo zypper dup"
+
 ## linuxmint
 alias int="sudo apt install"
 alias rmv="sudo apt remove"
